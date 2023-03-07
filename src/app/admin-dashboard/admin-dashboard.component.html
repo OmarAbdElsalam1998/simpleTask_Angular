@@ -1,0 +1,101 @@
+
+<!-- Start Dashboard  -->
+<main class="main-content">
+    <section class="admin-dashboard py-5">
+        <div class="container">
+            <h4>Dashboard</h4>
+            <div class="customer-update-requests bg-white rounded p-3">
+                <div class="row ">
+                    <div class="table-responsive">
+                        <table class="table align-middle">
+                          <thead>
+                            <tr>
+                             <th>First Name</th>
+                             <th>Last Name</th>
+                             <th>Email</th>
+                             <th>Status</th>
+                             <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let customer of allCustomersUpdates">
+                                <th>{{customer?.firstName}}</th>
+                                <th>{{customer?.lastName}}</th>
+                                <th>{{customer?.email}}</th>
+                                <th *ngIf="customer?.status==='pending'"><span class="status pending">{{customer?.status}}</span></th>
+                                <th *ngIf="customer?.status==='approved'"><span class="status approved">{{customer?.status}}</span></th>
+                                <th>
+                                    <button (click)="viewCustomerUpdates(customer?.id)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    view
+                                   </button>
+                                </th>
+                            </tr>
+                           
+                           
+                          </tbody>
+                        </table>
+                      </div>
+                   
+                </div>
+            </div>
+
+
+
+  
+  <!-- Modal =>when admin click on view details this modal will appeare to see updated data-->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Updated Fields</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="customer-info" *ngIf="selectedCustomer">
+            <div class="form-group mb-2" *ngIf="selectedCustomer.firstName">
+                <label>First Name</label>
+                <input class="form-control" disabled [value]="selectedCustomer.firstName">
+            </div>
+            <div class="form-group mb-2" *ngIf="selectedCustomer.lastName">
+                <label>last Name</label>
+                <input class="form-control" disabled [value]="selectedCustomer.lastName">
+            </div>
+            <div class="form-group mb-2" *ngIf="selectedCustomer.email">
+                <label>Email</label>
+                <input class="form-control" disabled [value]="selectedCustomer.email">
+            </div>
+            <div class="form-group mb-2" *ngIf="selectedCustomer.phone">
+                <label>phone</label>
+                <input class="form-control" disabled [value]="selectedCustomer.phone">
+            </div>
+            <div class="form-group mb-2" *ngIf="selectedCustomer.dateOfBirth">
+                <label>Date Of Birth</label>
+                <input class="form-control" disabled [value]="selectedCustomer.dateOfBirth">
+            </div>
+            <div class="form-group mb-2" *ngIf="selectedCustomer.address">
+                <label>Address</label>
+                <input class="form-control" disabled [value]="selectedCustomer.address">
+            </div>
+            <div class="form-group mb-2" *ngIf="selectedCustomer.alternativePhone">
+                <label>Alternative Phone</label>
+                <input class="form-control" disabled [value]="selectedCustomer.alternativePhone">
+            </div>
+            <div class="form-group mb-2" *ngIf="selectedCustomer.alternativeAddress">
+                <label>Alternative Address</label>
+                <input class="form-control" disabled [value]="selectedCustomer.alternativeAddress">
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
+          <button type="button" class="btn btn-primary">Approve</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+    </section>
+</main>
+
+<!-- End Dashboard -->

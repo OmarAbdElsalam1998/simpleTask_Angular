@@ -1,0 +1,19 @@
+.main-content{
+    height:100vh;
+    background-color: #EEE;
+    
+}
+.customer-update-requests .status{
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 15px;
+    
+} 
+.customer-update-requests .status.pending{
+   background-color: #ff8f004f;
+   color: #be920b;
+}
+.customer-update-requests .status.approved{
+    background-color: #38d26969;
+    color: #0e6505;
+ }

@@ -1,0 +1,66 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "email": "ali@gmail.com",
+      "password": "ali12345",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "email": "ali2@gmail.com",
+      "password": "ali12345",
+      "role": "customer",
+      "completancePercentage":"80"
+    },
+    {
+      "firstName": "omar",
+      "lastName": "ali",
+      "email": "omar@gmail.com",
+      "phone": "01245444744",
+      "gender": "male",
+      "dateOfBirth": "2023-03-22",
+      "address": "12 moahnnee st",
+      "password": "omar12345",
+      "confirmpassword": "omar12345",
+      "role": "customer",
+      "alternativePhone": "01200255555555",
+      "alternativeAddress": "12 sayed ali st",
+      "completancePercentage":"100",
+      "id": 3
+    }
+  ],
+  "customerTemp": [
+    {
+      "id": 1,
+      "firstName":"omar",
+      "lastName":"AbdElsalam",
+      "email": "omar@gmail.com",
+      "alternativePhone": "01200255555555",
+      "alternativeAddress": "12 sayed ali st",
+      "status":"pending",
+      "customer_ID":"3"
+     
+    },
+    {
+      "id": 2,
+      "firstName":"Ahmed",
+      "lastName":"Ibrahem",
+      "email": "ahmed@gmail.com",
+      "alternativePhone": "01200255555555",
+      "alternativeAddress": "12 mohammed ali st",
+      "status":"pending"
+     
+    },
+    {
+      "id": 3,
+      "firstName":"ali",
+      "lastName":"zakaria",
+      "email": "ali@gmail.com",
+      "alternativePhone": "01200255555555",
+      "alternativeAddress": "12 abbaas  st",
+      "status":"approved"
+     
+    }
+  ]
+}

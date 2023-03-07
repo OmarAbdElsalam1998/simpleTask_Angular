@@ -1,0 +1,139 @@
+<section class="customer-profile p-5  bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-4 ">
+                <div class="profile-completance  d-flex align-items-center bg-white rounded p-5">
+                    <h4>Profile Completance</h4>
+                    <div class="progress">
+                        <span [style.width]="customerInformation?.completancePercentage+'%'"></span>
+                        <span [style.left]="(customerInformation?.completancePercentage-3)+'%'">{{customerInformation?.completancePercentage +"%"}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col-lg-12 ">
+              <div class="card text-black rounded" >
+                <div class="card-body p-md-5">
+                  <div class="row justify-content-center">
+                    <div class="col-12 order-2 order-lg-1">
+      
+                      <div class="d-flex align-items-center justify-content-between">
+                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Customer Information</p>
+                        <div class="update-status" >
+                            <span *ngIf="updatedInfoStatus=='pending'" class="status pending">Your data is being reviewed</span>
+                            <span *ngIf="updatedInfoStatus=='approved'" class="status approved">Your data has been reviewed </span>
+                        </div>
+                        
+                      </div>
+      
+                      <form class="mx-1 mx-md-4" [formGroup]="registerationForm" >
+                        <div class="d-md-flex mb-2">
+                            <div class="form-group  me-md-1 mb-2 mb-md-0 w-100">
+                                <label for="exampleFormControlInput1" class="form-label"  >First Name</label>
+                                <input value="2" [attr.disabled]="disableField" [class.is-invalid]="firstName?.invalid && firstName?.touched" formControlName="firstName" type="text" class="form-control">
+                                <div *ngIf="firstName?.invalid && firstName?.touched">
+                                    <small *ngIf="firstName?.errors?.['required']"  class="text-danger">this Field is Required</small>
+                                    <small *ngIf="firstName?.errors?.['pattern']"  class="text-danger">Name should be letters only and length must be form 3-32 characters </small>
+                                </div>
+                            </div>  
+                            <div class="form-group ms-md-1   w-100">
+                                <label for="exampleFormControlInput1" class="form-label"  >Last Name</label>
+                                <input [attr.disabled]="disableField" [class.is-invalid]="lastName?.invalid && lastName?.touched" formControlName="lastName" type="text" class="form-control">
+                                <div *ngIf="lastName?.invalid && lastName?.touched">
+                                    <small *ngIf="lastName?.errors?.['required']"  class="text-danger">this Field is Required</small>
+                                    <small *ngIf="lastName?.errors?.['pattern']"  class="text-danger">Name should be letters only and length must be form 3-32 characters </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row align-items-center mb-2">
+                            <div class="form-outline flex-fill mb-0">
+                                <label for="exampleFormControlInput1" class="form-label"  >Email</label>
+                                <input [attr.disabled]="disableField" [class.is-invalid]="email?.invalid && email?.touched" formControlName="email" name="textemail" type="text" class="form-control" placeholder=" ">
+                                <div *ngIf="email?.invalid && email?.touched">
+                                    <small class="text-danger" *ngIf="email?.errors?.['required']"> Email is Required</small>
+                                    <small class="text-danger" *ngIf="email?.errors?.['pattern']"  > Email should be in form example@domain.com </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row align-items-center mb-2">
+                            <div class="form-outline flex-fill mb-0">
+                                <label for="exampleFormControlInput1" class="form-label"  >Phone Number</label>
+                                <input [class.is-invalid]="phone?.invalid && phone?.touched" formControlName="phone" name="textphone" type="text" class="form-control" placeholder=" ">
+                                <div *ngIf="phone?.invalid && phone?.touched">
+                                    <small class="text-danger" *ngIf="phone?.errors?.['required']"> This Field is Required</small>
+                                    <small class="text-danger" *ngIf="phone?.errors?.['pattern']"  > please Enter A Valid Phone Number </small>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="d-md-flex mb-2">
+                            <div class="form-group  me-md-1 mb-2 mb-md-0 w-100">
+                                <label class="form-label" >Gender</label><br>
+                
+                                    <select class="form-select" formControlName="gender">
+                                        <option></option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                      <div *ngIf="gender?.invalid && gender?.touched">
+                                        <small *ngIf="gender?.errors?.['required']"  class="text-danger">this Field is Required</small>
+                                    </div>
+                                
+                            </div>  
+                            <div class="form-group ms-md-1   w-100">
+                                <label for="exampleFormControlInput1" class="form-label"  >Date OF Birth</label>
+                                <input [class.is-invalid]="dateOfBirth?.invalid && dateOfBirth?.touched" formControlName="dateOfBirth" type="date" class="form-control">
+                                <div *ngIf="dateOfBirth?.invalid && dateOfBirth?.touched">
+                                    <small *ngIf="dateOfBirth?.errors?.['required']"  class="text-danger">this Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="d-flex flex-row align-items-center mb-2">
+                            <div class="form-outline flex-fill mb-0">
+                                <label for="exampleFormControlInput1" class="form-label"  >Address</label>
+                                <input [class.is-invalid]="address?.invalid && address?.touched" formControlName="address" name="textaddress" type="text" class="form-control" placeholder=" ">
+                                <div *ngIf="address?.invalid && address?.touched">
+                                    <small class="text-danger" *ngIf="address?.errors?.['required']"> This Field is Required</small>
+                                    <small class="text-danger" *ngIf="address?.errors?.['pattern']"  > please Enter A Valid address  </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row align-items-center mb-2">
+                            <div class="form-outline flex-fill mb-0">
+                                <label for="exampleFormControlInput1" class="form-label"  >Alternative Phone</label>
+                                <input  formControlName="alternativePhone" name="textaddress" type="text" class="form-control" placeholder=" ">
+                                
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row align-items-center mb-2">
+                            <div class="form-outline flex-fill mb-0">
+                                <label class="form-label"  >Alternative Address</label>
+                                <input  formControlName="alternativeAddress" name="textaddress" type="text" class="form-control" placeholder=" ">
+                                
+                            </div>
+                        </div>
+                        
+
+    
+      
+                        
+      
+                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                          <button (click)="saveUpdates()" type="button"    class="btn btn-primary btn-lg">Update</button>
+                        </div>
+                      
+      
+                      </form>
+      
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</section>

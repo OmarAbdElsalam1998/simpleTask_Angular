@@ -1,0 +1,64 @@
+/* Start Customer Profile Section */
+.customer-profile{
+    min-height: 100vh;
+}
+/* start progress style */
+.customer-profile .progress{
+    margin: auto;
+    width: 70%;
+    height: 6px;
+    background-color: #EEE;
+    border-radius: 10px;
+    position: relative;
+    overflow: visible;
+   
+}
+.customer-profile .progress span:nth-of-type(1){
+    width: 30%;
+    max-width: 100%;
+    display: block;
+    height: 6px;
+    border-radius: 10px;
+    background-color: #0ec371;
+
+}
+.customer-profile .progress span:nth-of-type(2){
+    display: block;
+    position: absolute;
+    top: -30px;
+    left: 27%;
+    padding: 2px 7px;
+    /* left: 30%; */
+    border-radius: 2px;
+    background-color: #0ec371;
+    color: #FFF;
+    font-weight: bold;
+}
+.customer-profile .progress span:nth-of-type(2)::after{
+    content: "";
+    position: absolute;
+    top: 21px;
+    left: 12px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: #0ec371 transparent transparent transparent;
+}
+
+/* End style progress */
+.update-status .status{
+    display: inline-block;
+    padding: 20px;
+    border-radius: 5px;
+    
+} 
+.update-status  .status.pending{
+   background-color: #ff8f004f;
+   color: #be920b;
+   border:1px solid #be920b
+}
+.update-status  .status.approved{
+    background-color: #38d26969;
+    color: #0e6505;
+    border:1px solid #0e6505
+ }
+/* End Customer Profile Section */
